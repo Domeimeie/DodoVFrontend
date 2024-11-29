@@ -22,6 +22,12 @@ npm install
 npm run dev
 ```
 
+### Compile and Hot-Reload for Development on remote server
+
+```sh
+npm run dev -- --host 192.168.1.169
+```
+
 ### Compile and Minify for Production
 
 ```sh
