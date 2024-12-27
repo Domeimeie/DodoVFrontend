@@ -5,26 +5,24 @@
         <Villages />
       </div>
       <div class="bg-green-800 h-full">
-        <Attacks />
+        <Buildings />
       </div>
     </div>
-    <div class="">Main Window</div>
+    <Clicker />
     <div class="bg-red-200 flex flex-col">
       <div class="bg-red-400 h-full">
         <Ressources />
-      </div>
-      <div class="bg-red-800 h-full">
-        <Army />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Villages from './components/villageView/Villages.vue';
-import Attacks from './components/villageView/Attacks.vue';
-import Ressources from './components/villageView/Ressources.vue';
-import Army from './components/villageView/Army.vue';
+
+  import Villages from './components/villageView/Villages.vue';
+  import Buildings from './components/villageView/Buildings.vue';
+  import Ressources from './components/villageView/Ressources.vue';
+  import Clicker from './components/villageView/Clicker.vue';
 </script>
 
 <style scoped>

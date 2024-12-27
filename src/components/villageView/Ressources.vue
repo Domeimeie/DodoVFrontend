@@ -1,34 +1,34 @@
 <template>
-    <p>{{food}}</p>
+    <p>Melonen: {{melonStore.melon}}</p>
+    <p>Dodos: {{ dodos }}</p>
 </template>
 
-<script >
-    const stone = 2;
-    const iron = 2;
+<script setup>
 
     import { ref, onMounted, onUnmounted } from 'vue';
+    import { useMelonStore } from '@/components/stores/ressourceStore.js';
 
-    export default  {
-        setup() {
-        const food = ref(0);
-        const incrementAmount = 1;
-        let intervalId = null;
+    const melonStore = useMelonStore();
+    const dodos = ref(2);
 
-        onMounted(() => {
-        intervalId = setInterval(() => {
-            food.value += incrementAmount;
-        }, 1000);
-        });
+    const incrementAmount = 1;
+    let intervalId = null;
 
-        onUnmounted(() => {
-        if (intervalId) {
-            clearInterval(intervalId);
-        }
-        });
+    onMounted(() => {
+    intervalId = setInterval(() => {
+        updateMelonInStore();
+    }, 1000);
+    });
 
-        return { food };
-  },
-};
+    onUnmounted(() => {
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
+    });
+
+    const updateMelonInStore = () => {
+        melonStore.updateMelon(melonStore.melon + incrementAmount);
+    };
 </script>
 
 <style scoped>

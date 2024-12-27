@@ -1,5 +1,6 @@
 <template>
-    <h1>Attacks</h1>
+    <h1>Buildings</h1>
+    <p>Dodo</p>
 </template>
 
 
