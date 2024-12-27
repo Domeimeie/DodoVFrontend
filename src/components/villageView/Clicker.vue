@@ -1,23 +1,33 @@
 <template>
-
-    <div style="width: 20px; height: 20px; background-color: red;" @click="updateMelonInStore">Update Melon</div>
+    <div class="clicker">
+        <img :src="melonImage" alt="My Image" @click="updateMelonInStore"/>
+    </div>
 </template>
 
 
 <script setup>
-
-    import { useMelonStore } from '@/components/stores/ressourceStore.js';
-
-    const melonStore = useMelonStore();
+    import melonImage from '@/assets/melon.webp';
+    import { useMelonStore } from '@/components/stores/ressourceStores.js';
 
     const incrementAmount = 1;
 
-    const updateMelonInStore = () => {
-        melonStore.updateMelon(melonStore.melon + incrementAmount);
-    };
+    const melonStore = useMelonStore();
+
 </script>
 
 
 <style scoped>
+    .clicker{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
 
+    .clicker img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
 </style>

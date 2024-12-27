@@ -11,12 +11,12 @@ export const useMelonStore = defineStore('melon', {
   },
 });
 
-export const useDodosStore = defineStore('dodo', {
+export const useDodoStore = defineStore('dodo', {
   state: () => ({
     dodo: 0,
   }),
   actions: {
-    updateMelon(newDodoValue) {
+    updateDodo(newDodoValue) {
       this.dodo = newMDodoValue;
     },
   },
