@@ -8,8 +8,8 @@
 
     import {onMounted, onUnmounted } from 'vue';
     import Ressource from '../props/Ressource.vue'
-    import { useMelonStore } from '@/components/stores/ressourceStores.js';
-    import { useDodoStore } from '@/components/stores/ressourceStores.js';
+    import { useMelonStore } from '@/components/stores/RessourceStores.js';
+    import { useDodoStore } from '@/components/stores/RessourceStores.js';
 
     const incrementAmount = 1;
     let intervalId = null;

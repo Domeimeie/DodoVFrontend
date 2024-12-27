@@ -5,11 +5,12 @@
 <script setup>    
     const props = defineProps({
     name: String,
-    amount: Number 
+    amount: Number
     });
 
+    const emit = defineEmits(['upgrade'])
     const click = () => {
-        console.log("YES");
+        emit('upgrade');
     };
 ;
 </script>

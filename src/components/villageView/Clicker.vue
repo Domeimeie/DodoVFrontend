@@ -7,12 +7,15 @@
 
 <script setup>
     import melonImage from '@/assets/melon.webp';
-    import { useMelonStore } from '@/components/stores/ressourceStores.js';
+    import { useMelonStore } from '@/components/stores/RessourceStores.js';
+    import { useClickerStore } from '@/components/stores/UpgradeStores.js';
 
-    const incrementAmount = 1;
+    const clickIncrement = useClickerStore();
 
     const melonStore = useMelonStore();
-
+    const updateMelonInStore = () => {
+        melonStore.updateMelon(melonStore.melon + clickIncrement.clicker);
+    };
 </script>
 
 
