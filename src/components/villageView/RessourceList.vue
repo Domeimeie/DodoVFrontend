@@ -15,18 +15,10 @@
     let intervalId = null;
 
     const melonStore = useMelonStore();
-    const updateMelonInStore = () => {
-        melonStore.updateMelon(melonStore.melon + incrementAmount);
-    };
-
     const dodoStore = useDodoStore();
-    const updateDodoInStore = () => {
-        dodoStore.updateDodo(melonStore.dodo + incrementAmount);
-    };
-
     onMounted(() => {
     intervalId = setInterval(() => {
-        updateMelonInStore();
+        melonStore.updateMelon(melonStore.melon + incrementAmount);
     }, 1000);
     });
 

@@ -14,7 +14,7 @@
 
     const melonStore = useMelonStore();
     const updateMelonInStore = () => {
-        melonStore.updateMelon(melonStore.melon + clickIncrement.clicker);
+        melonStore.updateMelon(melonStore.melon + (clickIncrement.clicker+1));
     };
 </script>
 

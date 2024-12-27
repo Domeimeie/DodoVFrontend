@@ -2,7 +2,7 @@
     <h1>Upgrades</h1>
     <Ressource :name="'Klicker'" :amount=clickerStore.clicker @upgrade="upgradeClicker"/>
     <Ressource :name="'Dodos'" :amount=0 />
-    <Ressource :name="'Melonen Farm'" :amount=0 />
+    <Ressource :name="'Melonen Farm'" :amount=0 @upgrade="upgradeMelonFarm"/>
 </template>
 
 
@@ -17,13 +17,24 @@
 
     const clickerStore = useClickerStore();
     const upgradeClicker = () => {
-        console.log(melonStore.melon);
-        console.log(clickerStore.clicker);
-        if (melonStore.melon>=100*clickerStore.clicker){
-            melonStore.updateMelon(melonStore.melon - 100*clickerStore.clicker);
+        if (melonStore.melon>=100*(clickerStore.clicker+1)){
+            melonStore.updateMelon(melonStore.melon - 100*(clickerStore.clicker+1));
             clickerStore.updateClicker(clickerStore.clicker + 1);
         }
     };
+
+
+
+    const melonFarmStore = useClickerStore();
+    const upgradeMelonFarm = () => {
+        console.log(melonStore.melon);
+        console.log(clickerStore.clicker);
+        if (melonStore.melon>=100*(clickerStore.clicker+1)){
+            melonStore.updateMelon(melonStore.melon - 200*(clickerStore.clicker+1));
+            melonFarmStore.updateClicker(melonFarmStore.melonFarm + 1);
+        }
+    };
+
 </script>
 
 

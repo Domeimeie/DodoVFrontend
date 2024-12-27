@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useClickerStore = defineStore('clicker', {
   state: () => ({
-    clicker: 1,
+    clicker: 0,
   }),
   actions: {
     updateClicker(newClickerValue) {
