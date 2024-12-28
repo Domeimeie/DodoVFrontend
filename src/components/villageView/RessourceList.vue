@@ -10,15 +10,17 @@
     import Ressource from '../props/Ressource.vue'
     import { useMelonStore } from '@/components/stores/RessourceStores.js';
     import { useDodoStore } from '@/components/stores/RessourceStores.js';
+    import { useMelonFieldStore } from '@/components/stores/UpgradeStores.js';
 
     const incrementAmount = 1;
     let intervalId = null;
 
     const melonStore = useMelonStore();
     const dodoStore = useDodoStore();
+    const melonFieldStore = useMelonFieldStore();
     onMounted(() => {
     intervalId = setInterval(() => {
-        melonStore.updateMelon(melonStore.melon + incrementAmount);
+        melonStore.updateMelon(melonStore.melon + (melonFieldStore.melonField));
     }, 1000);
     });
 
