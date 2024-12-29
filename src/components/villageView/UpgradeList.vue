@@ -1,8 +1,8 @@
 <template>
     <h1>Upgrades</h1>
-    <Ressource :name="'Klicker'" :amount=clickerStore.clicker @upgrade="upgradeClicker"/>
-    <Ressource :name="'Dodos'" :amount=dodoStore.dodo  @upgrade="upgradeDodo"/>
-    <Ressource :name="'Melonen Farm'" :amount=melonFieldStore.melonField @upgrade="upgradeMelonFarm"/>
+    <Ressource :name="'Klicker'" :amount=clickerStore.clicker :image=clickerImage :upgradeCost=clickerBaseUpgradeCost*(clickerStore.clicker+1) :availableCost=melonStore.melon @upgrade="upgradeClicker"/>
+    <Ressource :name="'Dodos'" :amount=dodoStore.dodo :image=dodoImage :upgradeCost=dodoBaseUpgradeCost :availableCost=melonStore.melon @upgrade="upgradeDodo"/>
+    <Ressource :name="'Melonen Farm'" :amount=melonFieldStore.melonField :image=melonFarmImage :upgradeCost=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1) :availableCost=melonStore.melon @upgrade="upgradeMelonFarm"/>
 </template>
 
 
@@ -12,29 +12,35 @@
     import { useMelonFieldStore } from '@/components/stores/UpgradeStores.js';
     import { useMelonStore } from '@/components/stores/RessourceStores.js';
     import { useDodoStore } from '@/components/stores/RessourceStores.js';
+    import clickerImage from '@/assets/melon.webp';
+    import dodoImage from '@/assets/melon.webp';
+    import melonFarmImage from '@/assets/melon.webp';
 
+    const clickerBaseUpgradeCost=100;
+    const dodoBaseUpgradeCost=50;
+    const melonFieldBaseUpgradeCost=200;
     const melonStore = useMelonStore();
 
     const clickerStore = useClickerStore();
     const upgradeClicker = () => {
-        if (melonStore.melon>=100*(clickerStore.clicker+1)){
-            melonStore.updateMelon(melonStore.melon - 100*(clickerStore.clicker+1));
+        if (melonStore.melon>=clickerBaseUpgradeCost*(clickerStore.clicker+1)){
+            melonStore.updateMelon(melonStore.melon - clickerBaseUpgradeCost*(clickerStore.clicker+1));
             clickerStore.updateClicker(clickerStore.clicker + 1);
         }
     };
 
     const dodoStore = useDodoStore();
     const upgradeDodo = () => {
-        if (melonStore.melon>=50){
-            melonStore.updateMelon(melonStore.melon - 50);
+        if (melonStore.melon>=dodoBaseUpgradeCost){
+            melonStore.updateMelon(melonStore.melon - dodoBaseUpgradeCost);
             dodoStore.updateDodo(dodoStore.dodo + 1);
         }
     };
 
     const melonFieldStore = useMelonFieldStore();
     const upgradeMelonFarm = () => {
-        if (melonStore.melon>=200*(melonFieldStore.melonField+1)){
-            melonStore.updateMelon(melonStore.melon - 200*(melonFieldStore.melonField+1));
+        if (melonStore.melon>=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1)){
+            melonStore.updateMelon(melonStore.melon - melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1));
             melonFieldStore.updateMelonField(melonFieldStore.melonField + 1);
         }
     };
