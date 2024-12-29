@@ -1,6 +1,7 @@
 <template>
-    <div class="upgrade" :class="isUpgradeActive()" @click="click" :style="{ backgroundImage: `url(${image})` }">
+    <div class="upgrade" :class="isUpgradeActive()" @click="click">
             <p>{{ name }}: {{ amount }}</p>
+            <img :src="image"/>
     </div>
 </template>
 
@@ -28,12 +29,14 @@
 <style scoped>
     .upgrade{
         margin: 1vh;
-        padding: 1vh;
-        height: 5vh;
+        height: 8vh;
         background-size: cover;
         border: solid;
-        border-color: red;
+        border-color: grey;
         filter:saturate(0%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .upgradeActive{
@@ -47,12 +50,14 @@
     }
 
     .upgrade img{
-        width: 100%;
+        width: 60%;
         height: 100%;
         object-fit: cover;
+        mask-image: linear-gradient(to right, transparent, black);
     }
 
     .upgrade p{
-        top: 50%;
+        margin: 0;
+        font-weight: bold;
     }
 </style>

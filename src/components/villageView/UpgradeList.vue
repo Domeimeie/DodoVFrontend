@@ -2,7 +2,7 @@
     <h1>Upgrades</h1>
     <Ressource :name="'Klicker'" :amount=clickerStore.clicker :image=clickerImage :upgradeCost=clickerBaseUpgradeCost*(clickerStore.clicker+1) :availableCost=melonStore.melon @upgrade="upgradeClicker"/>
     <Ressource :name="'Dodos'" :amount=dodoStore.dodo :image=dodoImage :upgradeCost=dodoBaseUpgradeCost :availableCost=melonStore.melon @upgrade="upgradeDodo"/>
-    <Ressource :name="'Melonen Farm'" :amount=melonFieldStore.melonField :image=melonFarmImage :upgradeCost=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1) :availableCost=melonStore.melon @upgrade="upgradeMelonFarm"/>
+    <Ressource :name="'Melonen Farm'" :amount=melonFieldStore.melonField :image=melonFieldImage :upgradeCost=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1) :availableCost=melonStore.melon @upgrade="upgradeMelonFarm"/>
 </template>
 
 
@@ -13,8 +13,8 @@
     import { useMelonStore } from '@/components/stores/RessourceStores.js';
     import { useDodoStore } from '@/components/stores/RessourceStores.js';
     import clickerImage from '@/assets/melon.webp';
-    import dodoImage from '@/assets/melon.webp';
-    import melonFarmImage from '@/assets/melon.webp';
+    import dodoImage from '@/assets/dodo.webp';
+    import melonFieldImage from '@/assets/melonField.webp';
 
     const clickerBaseUpgradeCost=100;
     const dodoBaseUpgradeCost=50;
@@ -49,5 +49,7 @@
 
 
 <style scoped>
-
+    h1{
+        padding-left: 1vh;
+    }
 </style>
