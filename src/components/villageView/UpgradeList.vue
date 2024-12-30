@@ -1,24 +1,26 @@
 <template>
-    <h1>Upgrades</h1>
-    <Ressource :name="'Klicker'" :amount=clickerStore.clicker :image=clickerImage :upgradeCost=clickerBaseUpgradeCost*(clickerStore.clicker+1) :availableCost=melonStore.melon @upgrade="upgradeClicker"/>
-    <Ressource :name="'Dodos'" :amount=dodoStore.dodo :image=dodoImage :upgradeCost=dodoBaseUpgradeCost :availableCost=melonStore.melon @upgrade="upgradeDodo"/>
-    <Ressource :name="'Melonen Farm'" :amount=melonFieldStore.melonField :image=melonFieldImage :upgradeCost=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1) :availableCost=melonStore.melon @upgrade="upgradeMelonFarm"/>
+    <div class="upgrades">
+        <h1>Upgrades</h1>
+        <Ressource :name="'Klicker'" :amount=clickerStore.clicker :image=clickerImage :upgradeCost=clickerBaseUpgradeCost*(clickerStore.clicker+1) :availableCost=melonStore.melon @upgrade="upgradeClicker"/>
+        <Ressource :name="'Dodos'" :amount=dodoStore.dodo :image=dodoImage :upgradeCost=dodoBaseUpgradeCost :availableCost=melonStore.melon @upgrade="upgradeDodo"/>
+        <Ressource :name="'Melonen Farm'" :amount=melonFieldStore.melonField :image=melonFieldImage :upgradeCost=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1) :availableCost=melonStore.melon @upgrade="upgradeMelonFarm"/>
+    </div>
 </template>
 
 
 <script setup>
     import Ressource from '../props/Upgrades.vue'
-    import { useClickerStore } from '@/components/stores/UpgradeStores.js';
-    import { useMelonFieldStore } from '@/components/stores/UpgradeStores.js';
-    import { useMelonStore } from '@/components/stores/RessourceStores.js';
-    import { useDodoStore } from '@/components/stores/RessourceStores.js';
-    import clickerImage from '@/assets/melon.webp';
+    import { useClickerStore, useMelonFieldStore } from '@/components/stores/UpgradeStores.js';
+    import { useMelonStore, useDodoStore } from '@/components/stores/ResourceStores.js';
+    import clickerImage from '@/assets/cursor.webp';
     import dodoImage from '@/assets/dodo.webp';
     import melonFieldImage from '@/assets/melonField.webp';
 
+    //Setup Base Upgrade Costs
     const clickerBaseUpgradeCost=100;
     const dodoBaseUpgradeCost=50;
     const melonFieldBaseUpgradeCost=200;
+
     const melonStore = useMelonStore();
 
     const clickerStore = useClickerStore();
@@ -49,6 +51,11 @@
 
 
 <style scoped>
+    .upgrades {
+        background-color: #FF78AC;
+        padding: 1vh;
+    }
+
     h1{
         padding-left: 1vh;
     }

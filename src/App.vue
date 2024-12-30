@@ -17,14 +17,18 @@
 <script lang="ts" setup>
 
   import UpgradeList from './components/villageView/UpgradeList.vue';
-  import RessourceList from './components/villageView/RessourceList.vue';
+  import RessourceList from './components/villageView/ResourceList.vue';
   import Clicker from './components/villageView/Clicker.vue';
 </script>
 
 <style scoped>
-.my-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  height: 100vh;
-}
+  .my-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 100vh;
+  }
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 </style>

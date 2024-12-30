@@ -1,6 +1,9 @@
 <template>
     <div class="upgrade" :class="isUpgradeActive()" @click="click">
+        <div class="text-container">
             <p>{{ name }}: {{ amount }}</p>
+            <p>Kosten: {{ props.upgradeCost }}</p>
+        </div>
             <img :src="image"/>
     </div>
 </template>
@@ -32,7 +35,8 @@
         height: 8vh;
         background-size: cover;
         border: solid;
-        border-color: grey;
+        border-color: rgb(123, 145, 245);
+        background-color: #A8D5E3;
         filter:saturate(0%);
         display: flex;
         align-items: center;
@@ -41,12 +45,16 @@
 
     .upgradeActive{
         cursor: pointer;
-        filter:saturate(200%);
+        filter:saturate(100%);
     }
 
     .upgradeActive:hover{
         opacity: 0.5;
         filter:saturate(200%);
+    }
+
+    .upgradeActive:active{
+        filter: brightness(85%)
     }
 
     .upgrade img{
