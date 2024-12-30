@@ -45,10 +45,14 @@
     }
     
     .clicker h1{
-        display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
         text-align: center;
     }
+
+    @media screen and (max-width: 800px) {
+    .clicker img{
+        width: 80%;
+    }  
+  }
 </style>
