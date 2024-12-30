@@ -19,6 +19,7 @@
     gain: String
     });
 
+    //send emit to parent to upgrade
     const emit = defineEmits(['upgrade'])
     const click = () => {
         emit('upgrade');

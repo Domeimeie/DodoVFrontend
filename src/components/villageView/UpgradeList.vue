@@ -3,7 +3,7 @@
         <h1>Upgrades</h1>
         <Ressource :name="'Klicker'" :amount=clickerStore.clicker :image=clickerImage :upgradeCost=clickerBaseUpgradeCost*(clickerStore.clicker+1) :availableCost=melonStore.melon @upgrade="upgradeClicker"/>
         <Ressource :name="'Melonen Farm'" :amount=melonFieldStore.melonField :image=melonFieldImage :upgradeCost=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1) :availableCost=melonStore.melon @upgrade="upgradeMelonFarm"/>
-        <Ressource :name="'Zuchtstall'" :amount=breedingPenStore.breedingPen :image=melonFieldImage :upgradeCost=breedingPenBaseUpgradeCost*(breedingPenStore.breedingPen+1) :availableCost=melonStore.melon @upgrade="upgradeBreedingPen"/>
+        <Ressource :name="'Zuchtstall'" :amount=breedingPenStore.breedingPen :image=dodoImage :upgradeCost=breedingPenBaseUpgradeCost*(breedingPenStore.breedingPen+1) :availableCost=melonStore.melon @upgrade="upgradeBreedingPen"/>
     </div>
 </template>
 
@@ -18,7 +18,6 @@
 
     //Setup Base Upgrade Costs
     const clickerBaseUpgradeCost=100;
-    const dodoBaseUpgradeCost=50;
     const melonFieldBaseUpgradeCost=200;
     const breedingPenBaseUpgradeCost=50;
 

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useMelonStore = defineStore('melon', {
   state: () => ({
-    melon: 1000,
+    melon: 100,
   }),
   actions: {
     updateMelon(newMelonValue) {
@@ -13,7 +13,7 @@ export const useMelonStore = defineStore('melon', {
 
 export const useDodoStore = defineStore('dodo', {
   state: () => ({
-    dodo: 0,
+    dodo: 2,
   }),
   actions: {
     updateDodo(newDodoValue) {

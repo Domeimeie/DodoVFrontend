@@ -1,6 +1,6 @@
 <template>
     <div class="clicker">
-        <h1>Dodo Clicker</h1>
+        <h1>Dodo Breeder</h1>
         <img :src="melonImage" alt="My Image" @click="updateMelonInStore"/>
     </div>
 </template>
