@@ -1,35 +1,39 @@
-# vue-project
+## Dodo Breeder
 
-This template should help get you started developing with Vue 3 in Vite.
+Dodo Breeder is an engaging and addictive idle/clicker game where you step into the shoes of a prehistoric animal breeder with a mission to raise and grow a thriving population of dodos! Manage resources, unlock upgrades, and watch your dodo empire expand exponentially!
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- A dodolicious experience: Bring the beloved Dodo back from extinction.
+- Cartoonish Design: Enjoy a bright and cheerful art style.
+- Numbers go brrrr: Enjoy watching your number go up faster and faster.
 
-## Customize configuration
+## Requirements
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+A working vue installation
 
-## Project Setup
+## Installation
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
+Clone the git repository with the following command
 
 ```sh
+# clone git repo
+git clone https://github.com/Domeimeie/DodoVFrontend.git
+
+#run in local environment
 npm run dev
 ```
 
-### Compile and Hot-Reload for Development on remote server
+## Usage
 
-```sh
-npm run dev -- --host 192.168.1.169
-```
+ - Click to Farm Melons: Start with a few Melons and slowly farm more, all to feed your precious dodos.
+ - Upgrades and Automation: Unlock powerful upgrades like:
+    - Bonus Clicker: Farm more melons with every click!
+    - Melon Farm: Had enough of clicking? Lean back and let the number increase without you doing anything!
+    - Breeding Pens: Dodos breed to slow? Build additional Breeding Pens for an increased Dodo growth!
+ - Exponential Growth: Experience the thrill of seeing your dodo population explode with exponential growth mechanics.
+ - Extinction System: Be careful, Dodos need food to survive, and as soon as you don't have enough melons to keep them fed, they will go extinct!
 
-### Compile and Minify for Production
+## License
 
-```sh
-npm run build
-```
+[MIT](https://choosealicense.com/licenses/mit/)
