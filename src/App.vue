@@ -2,13 +2,13 @@
   <div class="my-grid">
     <div class="bg-green-200 flex flex-col">
       <div class="bg-green-800 h-full">
-        <UpgradeList />
+        <RessourceList />
       </div>
     </div>
     <Clicker />
     <div class="bg-red-200 flex flex-col">
       <div class="bg-red-400 h-full">
-        <RessourceList />
+        <UpgradeList />
       </div>
     </div>
   </div>
@@ -30,5 +30,13 @@
 
   p {
     font-family: Arial, Helvetica, sans-serif;
+  }
+
+  @media screen and (max-width: 800px) {
+    .my-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      height: auto;
+    }
   }
 </style>

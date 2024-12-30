@@ -2,6 +2,7 @@
     <div class="upgrade" :class="isUpgradeActive()" @click="click">
         <div class="text-container">
             <p>{{ name }}: {{ amount }}</p>
+            <p>{{ gain }}</p>
             <p>Kosten: {{ props.upgradeCost }}</p>
         </div>
             <img :src="image"/>
@@ -14,7 +15,8 @@
     amount: Number,
     image: String,
     upgradeCost: Number,
-    availableCost: Number
+    availableCost: Number,
+    gain: String
     });
 
     const emit = defineEmits(['upgrade'])

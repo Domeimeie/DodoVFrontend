@@ -24,7 +24,6 @@
     .clicker{
         margin-left: auto;
         margin-right: auto;
-        background-color: #FF78AC;
         padding: 1vh;
     }
 
@@ -50,7 +49,6 @@
         margin-left: auto;
         margin-right: auto;
         width: 50%;
+        text-align: center;
     }
-
-
 </style>

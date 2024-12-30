@@ -21,3 +21,14 @@ export const useMelonFieldStore = defineStore('melonField', {
     },
   },
 });
+
+export const useBreedingPenStore = defineStore('breedingPen', {
+  state: () => ({
+    breedingPen: 0,
+  }),
+  actions: {
+    updateBreedingPen(newBreedingPenValue) {
+      this.breedingPen = newBreedingPenValue;
+    },
+  },
+});
