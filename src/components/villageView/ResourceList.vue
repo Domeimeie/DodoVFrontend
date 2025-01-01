@@ -1,8 +1,14 @@
 <template>
     <div class="ressources">
         <h1>Ressourcen</h1>
-        <Ressource :name="'Melonen'" :amount=melonStore.melon :change="'(+' + melonFieldStore.melonField +' Melonen/s)'"/>
-        <Ressource :name="'Dodos'" :amount=dodoStore.dodo :change="'(-' + dodoStore.dodo +' Melonen/m)'"/>
+        <Ressource 
+            :name="'Melonen'" 
+            :amount=melonStore.melon 
+            :change="'(+' + melonFieldStore.melonField +' Melonen/s)'"/>
+        <Ressource 
+            :name="'Dodos'" 
+            :amount=dodoStore.dodo 
+            :change="'(-' + dodoStore.dodo +' Melonen/m)'"/>
     </div>
 </template>
 
@@ -42,6 +48,7 @@
             breedingPenStore.updateBreedingPen(0);
             melonFieldStore.updateMelonField(0);
             ClickerStore.updateClicker(0);
+            timePassed=0;
         }
     }, 60000);
     });

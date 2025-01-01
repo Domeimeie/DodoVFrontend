@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-
   import UpgradeList from './components/villageView/UpgradeList.vue';
   import RessourceList from './components/villageView/ResourceList.vue';
   import Clicker from './components/villageView/Clicker.vue';

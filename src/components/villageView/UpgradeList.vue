@@ -1,9 +1,24 @@
 <template>
     <div class="upgrades">
         <h1>Upgrades</h1>
-        <Ressource :name="'Bonus Klicks'" :amount=clickerStore.clicker :image=clickerImage :upgradeCost=clickerBaseUpgradeCost*(clickerStore.clicker+1) :availableCost=melonStore.melon @upgrade="upgradeClicker"/>
-        <Ressource :name="'Melonen Farm'" :amount=melonFieldStore.melonField :image=melonFieldImage :upgradeCost=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1) :availableCost=melonStore.melon @upgrade="upgradeMelonFarm"/>
-        <Ressource :name="'Zuchtstall'" :amount=breedingPenStore.breedingPen :image=dodoImage :upgradeCost=breedingPenBaseUpgradeCost*(breedingPenStore.breedingPen+1) :availableCost=melonStore.melon @upgrade="upgradeBreedingPen"/>
+        <Ressource 
+            :name="'Bonus Klicks'" 
+            :amount=clickerStore.clicker 
+            :image=clickerImage 
+            :upgradeCost=clickerBaseUpgradeCost*(clickerStore.clicker+1) 
+            :availableCost=melonStore.melon @upgrade="upgradeClicker"/>
+        <Ressource 
+            :name="'Melonen Farm'" 
+            :amount=melonFieldStore.melonField 
+            :image=melonFieldImage 
+            :upgradeCost=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1) 
+            :availableCost=melonStore.melon @upgrade="upgradeMelonFarm"/>
+        <Ressource 
+            :name="'Zuchtstall'" 
+            :amount=breedingPenStore.breedingPen 
+            :image=dodoImage 
+            :upgradeCost=breedingPenBaseUpgradeCost*(breedingPenStore.breedingPen+1) 
+            :availableCost=melonStore.melon @upgrade="upgradeBreedingPen"/>
     </div>
 </template>
 
