@@ -17,7 +17,6 @@
 </template>
 
 <script setup>
-
     import {onMounted, onUnmounted, computed, ref } from 'vue';
     import Ressource from '../props/Resource.vue'
     import { useMelonStore, useDodoStore } from '@/components/stores/ResourceStores.js';

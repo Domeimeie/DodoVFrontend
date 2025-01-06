@@ -5,25 +5,26 @@
             :name="'Bonus Klicks'" 
             :amount=clickerStore.clicker 
             :image=clickerImage 
-            :upgradeCost=clickerBaseUpgradeCost*(clickerStore.clicker+1) 
+            :upgradeCost=clickerUpgradeCost 
             :availableCost=melonStore.melon @upgrade="upgradeClicker"/>
         <Ressource 
             :name="'Melonen Farm'" 
             :amount=melonFieldStore.melonField 
             :image=melonFieldImage 
-            :upgradeCost=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1) 
+            :upgradeCost=melonFieldUpgradeCost 
             :availableCost=melonStore.melon @upgrade="upgradeMelonFarm"/>
         <Ressource 
             :name="'Zuchtstall'" 
             :amount=breedingPenStore.breedingPen 
             :image=dodoImage 
-            :upgradeCost=breedingPenBaseUpgradeCost*(breedingPenStore.breedingPen+1) 
+            :upgradeCost=breedingPenUpgradeCost 
             :availableCost=melonStore.melon @upgrade="upgradeBreedingPen"/>
     </div>
 </template>
 
 
 <script setup>
+    import {computed } from 'vue';
     import Ressource from '../props/Upgrades.vue'
     import { useClickerStore, useMelonFieldStore, useBreedingPenStore } from '@/components/stores/UpgradeStores.js';
     import { useMelonStore } from '@/components/stores/ResourceStores.js';
@@ -40,28 +41,45 @@
 
     const clickerStore = useClickerStore();
     const upgradeClicker = () => {
-        if (melonStore.melon>=clickerBaseUpgradeCost*(clickerStore.clicker+1)){
-            melonStore.updateMelon(melonStore.melon - clickerBaseUpgradeCost*(clickerStore.clicker+1));
+        if (melonStore.melon>=clickerUpgradeCost.value){
+            melonStore.updateMelon(melonStore.melon - clickerUpgradeCost.value);
             clickerStore.updateClicker(clickerStore.clicker + 1);
         }
     };
 
     const melonFieldStore = useMelonFieldStore();
     const upgradeMelonFarm = () => {
-        if (melonStore.melon>=melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1)){
-            melonStore.updateMelon(melonStore.melon - melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1));
+        if (melonStore.melon>=melonFieldUpgradeCost.value){
+            melonStore.updateMelon(melonStore.melon - melonFieldUpgradeCost.value);
             melonFieldStore.updateMelonField(melonFieldStore.melonField + 1);
         }
     };
 
     const breedingPenStore = useBreedingPenStore();
     const upgradeBreedingPen = () => {
-        if (melonStore.melon>=breedingPenBaseUpgradeCost*(breedingPenStore.breedingPen+1)){
-            melonStore.updateMelon(melonStore.melon - breedingPenBaseUpgradeCost*(breedingPenStore.breedingPen+1));
+        if (melonStore.melon>=breedingPenUpgradeCost.value){
+            melonStore.updateMelon(melonStore.melon - breedingPenUpgradeCost.value);
             breedingPenStore.updateBreedingPen(breedingPenStore.breedingPen + 1);
         }
     };
 
+    const clickerUpgradeCost = computed({
+        get() {
+            return clickerBaseUpgradeCost*(clickerStore.clicker+1);
+        },
+    })
+
+    const melonFieldUpgradeCost = computed({
+        get() {
+            return melonFieldBaseUpgradeCost*(melonFieldStore.melonField+1);
+        },
+    })
+
+    const breedingPenUpgradeCost = computed({
+        get() {
+            return breedingPenBaseUpgradeCost*(breedingPenStore.breedingPen+1);
+        },
+    })
 </script>
 
 
