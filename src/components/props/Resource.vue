@@ -1,6 +1,6 @@
 <template>
     <div id="ressource">
-        <p>{{ name }}: {{ amount }} {{ change }}</p>
+        <p>{{ name }}: {{ amount }}{{ change }}</p>
     </div>
 </template>
 

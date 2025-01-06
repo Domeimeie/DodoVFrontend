@@ -20,6 +20,12 @@ Clone the git repository with the following command
 # clone git repo
 git clone https://github.com/Domeimeie/DodoVFrontend.git
 
+#install dependencies
+npm install
+
+#fund
+npm fund
+
 #run in local environment
 npm run dev
 ```

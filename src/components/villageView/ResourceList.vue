@@ -4,24 +4,28 @@
         <Ressource 
             :name="'Melonen'" 
             :amount=melonStore.melon 
-            :change="'(+' + melonFieldStore.melonField +' Melonen/s)'"/>
+            :change="' (+' + melonFieldStore.melonField +' Melonen/s)'"/>
         <Ressource 
             :name="'Dodos'" 
             :amount=dodoStore.dodo 
-            :change="'(-' + dodoStore.dodo +' Melonen/m)'"/>
+            :change="' (-' + dodoStore.dodo +' Melonen/m)'"/>
+        <Ressource 
+            :name="'Dodo Wachstum'" 
+            :amount=dodoGrowth 
+            :change="'/m'"/>
     </div>
 </template>
 
 <script setup>
 
-    import {onMounted, onUnmounted } from 'vue';
+    import {onMounted, onUnmounted, computed, ref } from 'vue';
     import Ressource from '../props/Resource.vue'
     import { useMelonStore, useDodoStore } from '@/components/stores/ResourceStores.js';
     import { useMelonFieldStore, useBreedingPenStore, useClickerStore } from '@/components/stores/UpgradeStores.js';
 
     let intervalSecond = null;
     let intervalMinute = null;
-    let timePassed = 0;
+    let minutesPassed = ref(0);
 
     const melonStore = useMelonStore();
     const dodoStore = useDodoStore();
@@ -36,19 +40,19 @@
 
     //Decrease Melon count every minute, depending on number of Dodos
     intervalMinute = setInterval(() => {
-        dodoStore.updateDodo(dodoStore.dodo + Math.ceil((breedingPenStore.breedingPen + 1) ** 1.5 + dodoStore.dodo * 0.05));
+        dodoStore.updateDodo(dodoStore.dodo + dodoGrowth.value);
         melonStore.updateMelon(melonStore.melon - (dodoStore.dodo));
-        timePassed++;
+        minutesPassed.value++;
 
         //If Melons fall below 0, reset game to start values
         if(melonStore.melon<0){
-            alert("Alle Dodos sind verhungert. Innert " + timePassed + " Minuten hast du " + dodoStore.dodo + " Dodos gezüchtet");
+            alert("Alle Dodos sind verhungert. Innert " + minutesPassed.value + " Minuten hast du " + dodoStore.dodo + " Dodos gezüchtet.");
             melonStore.updateMelon(100);
             dodoStore.updateDodo(2);
             breedingPenStore.updateBreedingPen(0);
             melonFieldStore.updateMelonField(0);
             ClickerStore.updateClicker(0);
-            timePassed=0;
+            minutesPassed.value=0;
         }
     }, 60000);
     });
@@ -63,7 +67,11 @@
     }
     });
 
-
+    const dodoGrowth = computed({
+        get() {
+            return (Math.ceil((breedingPenStore.breedingPen + 1) ** 1.5 + dodoStore.dodo * 0.1));
+        },
+    })
 </script>
 
 <style scoped>
